@@ -197,7 +197,8 @@ button:focus {
         <input type="username" placeholder="username" id="username"><br>
         <input type="email" placeholder="Email" id="email"><br>
         <input type="password" placeholder="Password" id="password"><br>
-       <input type="button" onclick="window.location.href='thePage.html'" value="Sign up"><br>
+       <!--input type="button" onclick="window.location.href='thePage.html'" value="Sign up"><br--->
+       <input type="button" onclick="signUP();" value="Sign up"><br>
       </form>
     
       <div class="drops">
@@ -211,18 +212,21 @@ button:focus {
 
     <script>
       function signUP(){
-        var username= $("#username").val();
-        var password= $("#password").val();
-        var email = $("#email").val();
+	var  model ={
+        "username" : $("#username").val();
+        "password": $("#password").val();
+        "email" :$("#email").val();
+	}
         console.log(email);
                $.ajax({
-                      url: "/pwease/"+email+"/"+password,
-                      method:'get',
+                      url: "/admin/addpwease",
+                      method:'POST',
                       dataType:'json',
                       success:function(data){
                           alert("good");
                           //window.open("course.html");
-                          window.location.href = "course.html";
+                        //  window.location.href = "course.html";
+                          window.location.href='thePage.html';
                           
                       
                   },error: function(jqXHR,testStatus,errorThrown){

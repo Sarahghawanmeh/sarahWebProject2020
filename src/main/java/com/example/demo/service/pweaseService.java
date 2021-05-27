@@ -16,6 +16,11 @@ public class pweaseService {
 	public demodemo getRepos() {
 		return repos;
 	}
+	
+	public pwease saveData(pwease pw)
+	{
+		return repos.save(pw);
+	}
 
 	public void setRepos(demodemo repos) {
 		this.repos = repos;

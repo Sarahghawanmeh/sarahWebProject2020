@@ -39,9 +39,9 @@ public class admin {
 		n.setPassword(usr.getPassword());
 		
 		 HttpHeaders httpHeaders = new HttpHeaders();
-
+		return  uDao.saveData(n);
 	    //  return new ResponseEntity<>("{}", httpHeaders, HttpStatus.CREATED);
-		 return n;
+		// return n;
 		
 	}
 	@GetMapping("/admin/getAll")
