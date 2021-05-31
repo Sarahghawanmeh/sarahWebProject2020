@@ -197,10 +197,15 @@ body {
                   url: "/pwease/"+email+"/"+password,
                   method:'get',
                   dataType:'json',
+                  data: this.JSON.stringify(model),
+                  headers: {
+      				'Accept': 'application/json',
+      				'Content-Type': 'application/json'
+      				},
                   success:function(data){
                       alert("good");
-                      //window.open("course.html");
-                      window.location.href = "course.html";
+                     
+                      window.location.href = "thePage.html";
                       
                   
               },error: function(jqXHR,testStatus,errorThrown){

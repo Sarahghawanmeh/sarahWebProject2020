@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
 <style>
 body {
   background: linear-gradient(to left, #283593, #1976d2);
@@ -197,7 +199,6 @@ button:focus {
         <input type="username" placeholder="username" id="username"><br>
         <input type="email" placeholder="Email" id="email"><br>
         <input type="password" placeholder="Password" id="password"><br>
-       <!--input type="button" onclick="window.location.href='thePage.html'" value="Sign up"><br--->
        <input type="button" onclick="signUP();" value="Sign up"><br>
       </form>
     
@@ -213,15 +214,20 @@ button:focus {
     <script>
       function signUP(){
 	var  model ={
-        "username" : $("#username").val();
-        "password": $("#password").val();
-        "email" :$("#email").val();
+        "username" : $("#username").val()
+       , "password": $("#password").val()
+        ,"email" :$("#email").val()
 	}
         console.log(email);
                $.ajax({
                       url: "/admin/addpwease",
                       method:'POST',
                       dataType:'json',
+                      data: this.JSON.stringify(model),
+                      headers: {
+          				'Accept': 'application/json',
+          				'Content-Type': 'application/json'
+          				},
                       success:function(data){
                           alert("good");
                           //window.open("course.html");
@@ -230,7 +236,7 @@ button:focus {
                           
                       
                   },error: function(jqXHR,testStatus,errorThrown){
-                    alert("faild !!!");
+                    alert(jqXHR.responseText);
                   }
                });
       }
