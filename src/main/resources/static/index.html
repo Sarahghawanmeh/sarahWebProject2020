@@ -188,14 +188,14 @@ body {
 </style> 
 <script>
 
-  function signUP(){
-    var username= $("#username").val();
+  function signIN(){
+  
     var password= $("#password").val();
     var email = $("#email").val();
     console.log(email);
            $.ajax({
-                  url: "/pwease/"+email+"/"+password,
-                  method:'get',
+                  url: "/admin/addpwease",
+                  method:'GET',
                   dataType:'json',
                   data: this.JSON.stringify(model),
                   headers: {
@@ -225,7 +225,7 @@ body {
         <input type="password" placeholder="Password"><br>
         <input type="button" onclick="window.location.href='thePage.html'" value="Sign in"><br>
        <input type="button" onclick="window.location.href='signUP.html'" value="Sign up"><br>
-       
+    
       </form>
     
       <div class="drops">
