@@ -34,6 +34,10 @@ return repos.save(usr);
 	public void deleterPwease(pwease u) {
 		repos.delete(u);
 	}
+	public pwease login(String email , String password)
+	{
+		return repos.checkUser(email, password);
+	}
 
 
 	

@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,6 +56,12 @@ public class admin {
 	public String printHi()
 	{
 		return "hi";
+	}
+	
+	@PostMapping(value="admin/login/{email}/{password}")
+	public pwease login(@PathVariable(name="email")String email , @PathVariable String password)
+	{
+		return uDao.login(email, password);
 	}
 
 }
